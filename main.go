@@ -40,7 +40,6 @@ func (lb *LoadBalancer) serveProxy(rw http.ResponseWriter, req *http.Request) {
 	// logging
 	fmt.Printf("forwarding request to address %q\n", targetServer.Address())
 
-	// could delete pre-existing X-Forwarded-For header to prever IP spoofing
 	targetServer.Serve(rw, req)
 }
 
